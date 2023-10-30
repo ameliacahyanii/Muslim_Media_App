@@ -107,58 +107,60 @@ class NewsViewModel: ViewModel() {
                 }
             })
 
-        fun warningForMuslimNews() {
-            ApiClient.provideApiService().getWarningForMuslimNews()
-                .enqueue(object : Callback<NewsResponse> {
-                    override fun onResponse(
-                        call: Call<NewsResponse>,
-                        response: Response<NewsResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            Log.i(
-                                "ViewModel",
-                                "onResponse: ${response.body()}"
-                            )
-                        } else Log.e(
-                            "ViewModel",
-                            "onResponse: Call error with HTTP status code" + response.code()
-                        )
-                    }
 
-                    override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
-                        Log.e(
-                            "ViewModel",
-                            "onFailure: " + t.localizedMessage
-                        )
-                    }
-                })
-        }
+    }
 
-        fun searchNews(q: String) {
-            ApiClient.provideApiService().getSearchNews(q)
-                .enqueue(object : Callback<NewsResponse> {
-                    override fun onResponse(
-                        call: Call<NewsResponse>,
-                        response: Response<NewsResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            Log.i(
-                                "ViewModel",
-                                "onResponse: ${response.body()}"
-                            )
-                        } else Log.e(
+    fun warningForMuslimNews() {
+        ApiClient.provideApiService().getWarningForMuslimNews()
+            .enqueue(object : Callback<NewsResponse> {
+                override fun onResponse(
+                    call: Call<NewsResponse>,
+                    response: Response<NewsResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.i(
                             "ViewModel",
-                            "onResponse: Call error with HTTP status code" + response.code()
+                            "onResponse: ${response.body()}"
                         )
-                    }
+                    } else Log.e(
+                        "ViewModel",
+                        "onResponse: Call error with HTTP status code" + response.code()
+                    )
+                }
 
-                    override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
-                        Log.e(
+                override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+                    Log.e(
+                        "ViewModel",
+                        "onFailure: " + t.localizedMessage
+                    )
+                }
+            })
+    }
+
+    fun searchNews(q: String) {
+        ApiClient.provideApiService().getSearchNews(q)
+            .enqueue(object : Callback<NewsResponse> {
+                override fun onResponse(
+                    call: Call<NewsResponse>,
+                    response: Response<NewsResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.i(
                             "ViewModel",
-                            "onFailure: " + t.localizedMessage
+                            "onResponse: ${response.body()}"
                         )
-                    }
-                })
-        }
+                    } else Log.e(
+                        "ViewModel",
+                        "onResponse: Call error with HTTP status code" + response.code()
+                    )
+                }
+
+                override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+                    Log.e(
+                        "ViewModel",
+                        "onFailure: " + t.localizedMessage
+                    )
+                }
+            })
     }
 }

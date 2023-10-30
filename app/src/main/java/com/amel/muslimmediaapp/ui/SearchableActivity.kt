@@ -24,7 +24,7 @@ class SearchableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding =ActivitySearchableBinding.inflate(layoutInflater)
+        _binding = ActivitySearchableBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         _searchViewModel = ViewModelProvider(this)[NewsViewModel::class.java]
@@ -35,13 +35,13 @@ class SearchableActivity : AppCompatActivity() {
         searchViewModel.searchNews.observe(this) {
             binding.apply {
                 if (it.articles?.size == 0) {
-                    tvNoNewsx.text = getString(R.string.no_news_text)
-                    tvNoNewsx.visibility = View.VISIBLE
+                    tvNoNews.text = getString(R.string.no_news_text)
+                    tvNoNews.visibility = View.VISIBLE
                 } else {
                     rvSearchResult.apply {
-                        val menuAdapter = NewsAdapter()
-                        menuAdapter.setData(it.articles)
-                        adapter = menuAdapter
+                        val mAdapter = NewsAdapter()
+                        mAdapter.setData(it.articles)
+                        adapter = mAdapter
                         layoutManager = LinearLayoutManager(this@SearchableActivity)
                         visibility = View.VISIBLE
                     }
@@ -62,16 +62,17 @@ class SearchableActivity : AppCompatActivity() {
 
     fun handleIntent(intent: Intent) {
         if (Intent.ACTION_SEARCH == intent.action) {
-            intent.getStringExtra(SearchManager.QUERY)
-                ?.also { query ->
+            intent.getStringExtra(SearchManager.QUERY)?.also { query ->
                     querySearch = query
                     binding.apply {
                         rvSearchResult.visibility = View.GONE
                         loadingView.root.visibility = View.VISIBLE
-                        tvNoNewsx.visibility = View.INVISIBLE
+                        tvNoNews.visibility = View.INVISIBLE
                         searchView.setQuery("",false)
+                        searchView.queryHint = query
                         searchView.clearFocus()
                     }
+
                     // checking the search result
                     doMySearch(query)
                 }

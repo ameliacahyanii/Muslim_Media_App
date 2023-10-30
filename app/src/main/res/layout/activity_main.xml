@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="0dp"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:elevation="0dp"
             android:backgroundTint="@color/white"
-            android:tabIndicatorColor="@color/green"
+            app:tabIndicatorColor="@color/green"
             app:tabSelectedTextColor="@color/black"/>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -41,6 +41,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar">
+
     </androidx.viewpager2.widget.ViewPager2>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

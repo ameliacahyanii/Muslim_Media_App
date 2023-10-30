@@ -1,15 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--TODO 3 - Intialize theme-->
     <!-- Base application theme. -->
-    <style name="Base.Theme.MuslimMediaApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.MuslimMediaApp." parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:colorControlNormal">@color/black</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!--Menjadikan action bar menjadi light-->
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.MuslimMediaApp" parent="Base.Theme.MuslimMediaApp">
-        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
 </resources>

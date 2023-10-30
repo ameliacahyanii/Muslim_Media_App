@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("/v2/everything")
+    @GET("/v2/everything") // Get Data 
     fun getCommonMuslimNews(
         @Query("q") q: String = "islam",
         @Query("language") language: String = "en",
