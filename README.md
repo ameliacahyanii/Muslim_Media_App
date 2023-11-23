@@ -9,7 +9,7 @@ A Muslim Media App is a digital platform designed to cater to the Muslim communi
 The Android apps let you: 
 Display interesting Islamic articles with"
 - News updated
-- Content variety
+- Content variety (Common, About Al-Quran, Al-Jazeera, & Warn For Muslim)
 - Many reliable sources
 - Educational resources
 
